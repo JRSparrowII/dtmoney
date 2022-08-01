@@ -1,0 +1,5 @@
+PARA ADICIONAR UMA BIBLIOTECA DE ESTILOS USE:
+yarn add styled-components;
+
+ADICIONE TAMBEM OS TIPOS PARA MELHORAR A IMPLEMENTAÇÃO DO CODIGO USANDO:
+yarn add @types/styled-components -D
