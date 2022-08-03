@@ -12,4 +12,23 @@ export const Container = styled.div`
         border-radius: 0.25rem;
         color: var(--text-title);
     }
+
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    strong{
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 3rem;
+        color: var(--text-title);
+    }
+
+    .totalGeral{
+        background-color: var(--green);
+        color: #fff;
+    }
 `;

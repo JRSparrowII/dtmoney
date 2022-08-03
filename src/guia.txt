@@ -3,3 +3,82 @@ yarn add styled-components;
 
 ADICIONE TAMBEM OS TIPOS PARA MELHORAR A IMPLEMENTAÇÃO DO CODIGO USANDO:
 yarn add @types/styled-components -D
+
+json server github (usado para poder simular uma API dentro de um projeto incompleto, 
+mas que sirva para testes), mas pode usar ainda o miragejs (API fake)
+
+instale o yarn miragejs no terminal do VSCode usando o comando: yarn add miragejs!
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/transactions')
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }, []);
+
+    use a funcao acima do useEffect pra poder trazer os dados do miragejs para seu projeto!
+
+    com o miragejs instalado agora importe este comando =>: 
+        import {createServer} from 'miragejs'; 
+    no index principal do seu prjeto.
+
+    crie a função abaixo:
+
+    createServer({
+        routes(){
+            this.namespace = 'api';
+            this.get('/transactions', () => {
+            return[
+                {
+                id: 1,
+                title: 'Transaction 1',
+                amount: 400,
+                type: 'deposit',
+                category: 'Food',
+                createAt: new Date()
+                }
+            ]
+            })
+        }
+    })
+
+    feito isso, agora e so instalar o axios atraves do comando:
+    yarn add axios (no terminal)
+
+    crie uma pasta no src chamada services e dentro dela um arquivo chamado api.ts
+
+    com isso importe o axios na nova pasta e arquivo criado:
+        import axios from 'axios';
+
+        export const api = axios.create({
+        baseURL: 'http://localhost:3000/api',   
+        // headers:{}
+        })
+
+    por fim, troque o fetch pelo api na laaaaaaaaaa no useEffect, substituindo por api.get
+
+    para maiores informacoes acesso a aula CONSUMINDO UMA API no modulo do myfinances(dtmoney) aula 3.
+
+
+
+USANDO UM MODAL:
+
+para instalar um modal primeiro importe o modal usando o comando: 
+yarn add react-modal
+yarn add @types/react-modal -D
+
+depois disso crie o useState e a funcao que deseja, conforme o codigo a seguir:
+
+import Modal from 'react-modal';
+
+export function Header(){
+
+    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+
+    handleOpenNewTransactionModal(){
+        setIsNewTransactionModalOpen(true);
+    }
+
+    handleCloseNewTransactionModal(){
+        setIsNewTransactionModalOpen(false);
+    }
+}
