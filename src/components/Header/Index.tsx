@@ -7,17 +7,7 @@ interface HeaderProps{
     onOpenNewTransactionModal: () => void;
 }
 
-export function Header({onOpenNewTransactionModal}: HeaderProps){
-
-    // const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
-
-    // function handleOpenNewTransactionModal(){
-    //     setIsNewTransactionModalOpen(true);
-    // }
-
-    // function handleCloseNewTransactionModal(){
-    //     setIsNewTransactionModalOpen(false);
-    // }
+export function Header({onOpenNewTransactionModal}: HeaderProps){    
 
     return(
         <Container>
@@ -27,13 +17,7 @@ export function Header({onOpenNewTransactionModal}: HeaderProps){
                     type="button" 
                     onClick={onOpenNewTransactionModal}>
                     Nova Transação
-                </button>
-                {/* <Modal 
-                    isOpen={isNewTransactionModalOpen} 
-                    onRequestClose={handleCloseNewTransactionModal}
-                >
-                    <h2>Cadastrar Transação</h2>
-                </Modal> */}
+                </button>               
             </Content>
         </Container>
     )

@@ -4,6 +4,7 @@ import { Header } from './components/Header/Index';
 import { GlobalStyle } from './styles/global';
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { NewTransactionModal } from './components/NewTransactionModal';
 
 // const Title = styled.h1`
 // color: #8257e6;
@@ -24,17 +25,14 @@ export function App() {
       setIsNewTransactionModalOpen(false);
   }
 
-
   return (
     <>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
-      <Modal 
-          isOpen={isNewTransactionModalOpen} 
-          onRequestClose={handleCloseNewTransactionModal}
-      >
-          <h2>Cadastrar Transação</h2>
-      </Modal>
+      <NewTransactionModal
+        isOpen={isNewTransactionModalOpen}
+        onRequestClose={handleCloseNewTransactionModal}
+      />
       <GlobalStyle/>
     </>
   );
