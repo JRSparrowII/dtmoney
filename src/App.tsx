@@ -5,6 +5,7 @@ import { GlobalStyle } from './styles/global';
 import Modal from 'react-modal';
 import { useState } from 'react';
 import { NewTransactionModal } from './components/NewTransactionModal';
+import {TransactionsContext} from './TransactionsContext';
 
 // const Title = styled.h1`
 // color: #8257e6;
@@ -26,7 +27,7 @@ export function App() {
   }
 
   return (
-    <>
+    <TransactionsContext.Provider value={[]}>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
       <NewTransactionModal
@@ -34,7 +35,7 @@ export function App() {
         onRequestClose={handleCloseNewTransactionModal}
       />
       <GlobalStyle/>
-    </>
+    </TransactionsContext.Provider>
   );
 }
 
