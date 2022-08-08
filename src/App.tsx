@@ -5,7 +5,7 @@ import { GlobalStyle } from './styles/global';
 import Modal from 'react-modal';
 import { useState } from 'react';
 import { NewTransactionModal } from './components/NewTransactionModal';
-import {TransactionsContext, TransactionsProvider} from './TransactionsContext';
+import {TransactionsProvider} from './hooks/useTransactions';
 
 // const Title = styled.h1`
 // color: #8257e6;
