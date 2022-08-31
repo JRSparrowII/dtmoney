@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Dashboard } from './components/Dashboard/index';
 import { Header } from './components/Header/Index';
+// import { Menu } from './components/Menu/index';
 import { GlobalStyle } from './styles/global';
 import Modal from 'react-modal';
 import { useState } from 'react';
@@ -28,6 +29,7 @@ export function App() {
 
   return (
     <TransactionsProvider>
+      {/* <Menu onOpenNewTransactionModal={handleOpenNewTransactionModal}/> */}
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
       <NewTransactionModal

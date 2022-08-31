@@ -2,6 +2,8 @@ import Modal from 'react-modal';
 import {Container, TransactionTypeContainer, RadioBox} from './styles';
 import closeImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';
+import CalendarImg from '../../assets/calendar.png';
+import ValueImg from '../../assets/value.png'
 import outcomeImg from '../../assets/outcome.svg';
 import { FormEvent, useState, useContext } from 'react';
 import { api } from '../../services/api';
@@ -27,10 +29,10 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
         event.preventDefault();   
 
         await createTransaction ({
-        title, 
-        amount, 
-        category,
-        type
+            title, 
+            amount, 
+            category,
+            type
         })
 
         setTitle('');
@@ -52,18 +54,55 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
             </button>
 
             <Container onSubmit={handleNewCreateTransaction}>
-                <h2>Cadastrar Transação</h2>
-                <input
-                    placeholder='Titulo'
-                    value={title}
-                    onChange={event => setTitle(event.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder='Valor'
-                    value={amount}
-                    onChange={event => setAmount(Number(event.target.value))}
-                />
+                <div className="header-modal">
+                    <img src={CalendarImg} alt="calendar" />
+                    <h2>Cadastrar Transação</h2>
+                </div>
+
+                {/* CORPO DO MODAL */}
+                <div className="value-modal">
+                    <img src={ValueImg} alt="value"/>
+                    <span>Data da Transação</span>
+                    <input
+                        className='input-modal-total'
+                        placeholder='Ex: 01/01/2022'
+                        value={title}
+                        // VERIFICAR A DATATYPE AQUI EM CIMA NO LUGAR DO TITLE
+                        onChange={event => setTitle(event.target.value)}
+                    />
+                </div>
+
+                <div className="value-modal">
+                    <img src={ValueImg} alt="value"/>
+                    <span>Data da Transação</span>
+                    <input
+                        placeholder='Categoria'
+                        value={category}
+                        onChange={event => setCategory(event.target.value)}
+                    />
+                </div>
+                
+                <div className="value-modal">
+                    <img src={ValueImg} alt="value"/>
+                    <span>Descrição</span>
+                    <input
+                        className='input-modal-total'
+                        placeholder='Ex: Energia Elétrica'
+                        value={title}
+                        onChange={event => setTitle(event.target.value)}
+                    />
+                </div>                
+                <div>
+                    <img src={ValueImg} alt="value"/>
+                    <span>Descrição</span>
+                    <input
+                        type="number"
+                        placeholder='Valor'
+                        value={amount}
+                        onChange={event => setAmount(Number(event.target.value))}
+                    />
+                </div>
+                
 
                 <TransactionTypeContainer>
                     <RadioBox 
@@ -74,7 +113,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         // className={type === 'deposit' ? 'active':''}
                     >
                         <img src={IncomeImg} alt="Entradas" />
-                        <span>Entradas</span>
+                        <span>Receitas</span>
                     </RadioBox>
                     <RadioBox 
                         type='button'
@@ -82,17 +121,13 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         activeColor="red"
                         isActive={type === 'withdraw'}>
                         <img src={outcomeImg} alt="Saidas" />
-                        <span>Saidas</span>
+                        <span>Despesas</span>
                     </RadioBox>
                 </TransactionTypeContainer>
 
-                <input
-                    placeholder='Categoria'
-                    value={category}
-                    onChange={event => setCategory(event.target.value)}
-                />
+                
                 <button type="submit">
-                    Cadastrar
+                    Realizar Lançamento
                 </button>
             </Container>
           

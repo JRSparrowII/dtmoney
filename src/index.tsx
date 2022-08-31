@@ -14,19 +14,28 @@ createServer({
       transactions:[
         {
           id: 1,
+          createdAt: new Date('2022-07-07'),
+          // date: '01/09/2022',
+          category:'Alimentação',
           title: 'Supermercado',
           type: 'withdraw',
-          category:'Compras',          
+          paymentMethod: 'A prazo',
+          bank: 'Itaú',               
           amount: 600.00,
-          createdAt: new Date('2022-07-07'),
+          historic: 'Compra de queijo e presunto',
+          actions: 'Editar | Excluir'           
         },
         {
           id: 2,
-          title: 'Computador',
-          type: 'withdraw',
-          category:'Informática',          
+          createdAt: new Date('2022-07-07'),         
+          category:'Receitas',
+          title: 'Venda de Computador',
+          type: 'deposit',
+          paymentMethod: 'À vista',
+          bank: 'Banco do Brasil',
           amount: 2000.00,
-          createdAt: new Date('2022-07-07'),
+          historic: 'Venda do Processador e cooler',
+          actions: 'Editar | Excluir'          
         }
       ]
     })

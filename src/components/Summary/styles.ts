@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: -7rem;
+    margin-top: 2rem;    
 
     div{
         background: var(--shape);
@@ -29,6 +29,21 @@ export const Container = styled.div`
 
     .totalGeral{
         background-color: var(--green);
+        color: #fff;
+    }
+
+    .despesas{
+        background-color: var(--red);
+        color: #fff;
+    }
+
+    .saldo{
+        background-color: var(--yelow);
+        color: #fff;
+    }
+
+    .receitas{
+        background-color: var(--blue-light);
         color: #fff;
     }
 `;

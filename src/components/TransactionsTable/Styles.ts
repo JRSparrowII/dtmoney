@@ -18,14 +18,23 @@ export const Container = styled.div`
     td{
         padding: 1rem 2rem;
         border: none;
-        background: var(--shape);
+        /* background: var(--shape); */
+        font-weight: normal;
+        color: var(--text-body);
+        border-radius: 0.25rem;
+    }
+
+    tr{
+        padding: 1rem 2rem;
+        border: none;
+        /* background: red; */
         font-weight: normal;
         color: var(--text-body);
         border-radius: 0.25rem;
     }
 
     .newtransiction{
-        color: var(--text-title);
+        color: var(--text-body);
     }
 
     .deposit{
@@ -34,5 +43,19 @@ export const Container = styled.div`
 
     .withdraw{
         color: var(--red);
+    }
+
+    /* linhas pares (even) */
+    tbody tr:nth-child(even) {
+        background-color: white;
+    }
+    /* linhas ímpares (odd) */
+    tbody tr:nth-child(odd) {
+        background-color: #F7FBFC;
+    }
+
+    table tbody tr:hover {
+        background-color:  #6194A0;
+        color: white;
     }
 `;

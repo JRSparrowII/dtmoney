@@ -11,7 +11,7 @@ import { useTransactions } from '../../hooks/useTransactions';
 export function Summary(){
 
     const {transactions} = useTransactions();
-
+  
     // SOMANDO O TOTAL DAS ENTRADAS E SAIDAS EM TELA
     const summary = transactions.reduce((acc, transaction) => {
         if (transaction.type === 'deposit'){
@@ -30,9 +30,9 @@ export function Summary(){
 
     return(
         <Container>
-            <div>
+            <div className='receitas'>
                 <header>
-                    <p>Entradas</p>
+                    <p>Receitas</p>
                     <img src={incomeImg} alt="Entradas" />
                 </header>
                 <strong>
@@ -42,9 +42,22 @@ export function Summary(){
                     }).format(summary.deposits)}                      
                 </strong>
             </div>
-            <div>
+            <div className='despesas'>
                 <header>
-                    <p>Saidas</p>
+                    <p>Despesas</p>
+                    <img src={outcomeImg} alt="Saidas" />
+                </header>
+                <strong>
+                    -
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.withdraws)}                       
+                </strong>
+            </div>
+            <div className='saldo'>
+                <header>
+                    <p>Saldo</p>
                     <img src={outcomeImg} alt="Saidas" />
                 </header>
                 <strong>
@@ -67,6 +80,7 @@ export function Summary(){
                     }).format(summary.total)}                     
                 </strong>
             </div>
+            
         </Container>
     );
 }

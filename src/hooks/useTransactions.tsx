@@ -4,11 +4,15 @@ import {api} from '../services/api';
 
 interface Transaction{
     id: number;
-    title: string;
-    amount: number;
-    type: string;
+    createdAt: string;
     category: string;
-    createdAt: string;        
+    title: string;
+    paymentMethod: string;
+    bank: string;
+    amount: number;        
+    historic: string; 
+    actions: string;  
+    type: string;    
 }
 
 interface TransactionsProvideProps{
