@@ -7,7 +7,7 @@ background: var(--green);
 export const Content = styled.div`
     max-width: 1500px;
     margin: 0 auto;
-    padding: 2rem 1rem 2rem;
+    padding: 1rem 1rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

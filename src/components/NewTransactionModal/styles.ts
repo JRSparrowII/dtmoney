@@ -2,11 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.form`
     h1{
-        /* border-bottom: 2px solid #EEE;
-        color: var(--text-title);
-        font-size: 1rem;
-        margin-bottom: 2rem;  */
-        
+      
     }
 
     .header-modal{        
@@ -26,35 +22,22 @@ export const Container = styled.form`
         color: var(--text-body);
     }
 
-    .input-modal-total{
-        /* width: 100%;
-        padding: 10px 1.5rem;
-        height: 3.5rem;
-        border-radius: 0.25rem;
-        background: #e7e9ee;
-        border: 1px solid #d7d7d7;
-        font-weight: 400;
-        font-size: 1rem; */
+    .input-modal{  
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;  
     }
 
     input {
-        width: 49%;
+        width: 100%;
         padding: 10px 1.5rem;
         height: 3.5rem;
         border-radius: 0.25rem;
         background: #e7e9ee;
         border: 1px solid #d7d7d7;
         font-weight: 400;
-        font-size: 1rem;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5px;
-
-        /* display: flex;
-        align-items: center;
-        justify-content: center; */
-        /* display: inline-block; */
+        font-size: 1rem;    
 
         &::placeholder{
             color: var(--text-body);            

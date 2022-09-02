@@ -59,58 +59,14 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                     <h2>Cadastrar Transação</h2>
                 </div>
 
-                {/* CORPO DO MODAL */}
-                <div className="value-modal">
-                    <img src={ValueImg} alt="value"/>
-                    <span>Data da Transação</span>
-                    <input
-                        className='input-modal-total'
-                        placeholder='Ex: 01/01/2022'
-                        value={title}
-                        // VERIFICAR A DATATYPE AQUI EM CIMA NO LUGAR DO TITLE
-                        onChange={event => setTitle(event.target.value)}
-                    />
-                </div>
-
-                <div className="value-modal">
-                    <img src={ValueImg} alt="value"/>
-                    <span>Data da Transação</span>
-                    <input
-                        placeholder='Categoria'
-                        value={category}
-                        onChange={event => setCategory(event.target.value)}
-                    />
-                </div>
-                
-                <div className="value-modal">
-                    <img src={ValueImg} alt="value"/>
-                    <span>Descrição</span>
-                    <input
-                        className='input-modal-total'
-                        placeholder='Ex: Energia Elétrica'
-                        value={title}
-                        onChange={event => setTitle(event.target.value)}
-                    />
-                </div>                
-                <div>
-                    <img src={ValueImg} alt="value"/>
-                    <span>Descrição</span>
-                    <input
-                        type="number"
-                        placeholder='Valor'
-                        value={amount}
-                        onChange={event => setAmount(Number(event.target.value))}
-                    />
-                </div>
-                
-
+                <span>Escolha o tipo de transação que deseja realizar:</span>
                 <TransactionTypeContainer>
                     <RadioBox 
                         type='button' 
                         onClick={() => {setType('deposit');}}
                         isActive={type === 'deposit'}
                         activeColor="green"
-                        // className={type === 'deposit' ? 'active':''}
+                        className={type === 'deposit' ? 'active':''}
                     >
                         <img src={IncomeImg} alt="Entradas" />
                         <span>Receitas</span>
@@ -125,6 +81,84 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                     </RadioBox>
                 </TransactionTypeContainer>
 
+                {/* CORPO DO MODAL */}
+                <div className="input-modal">                
+                    <div>
+                        <img src={ValueImg} alt="value"/>
+                        <span>Data da Transação</span>
+                        <input
+                            className='input-modal-total'
+                            placeholder='Ex: 01/01/2022'
+                            value={title}
+                            // VERIFICAR A DATATYPE AQUI EM CIMA NO LUGAR DO TITLE
+                            onChange={event => setTitle(event.target.value)}
+                        />
+                    </div>
+
+                    <div>
+                        <img src={ValueImg} alt="value"/>
+                        <span>Categoria</span>
+                        <input
+                            placeholder='Ex: Alimentação'
+                            value={category}
+                            onChange={event => setCategory(event.target.value)}
+                        />
+                    </div>
+                </div>
+
+                <div className="input-modal">                  
+                    <div className="value-modal">
+                        <img src={ValueImg} alt="value"/>
+                        <span>Conta</span>
+                        <input
+                            className='input-modal-total'
+                            placeholder='Ex: Energia Elétrica'
+                            value={title}
+                            onChange={event => setTitle(event.target.value)}
+                        />
+                    </div>                
+                    <div>
+                        <img src={ValueImg} alt="value"/>
+                        <span>Forma de Pagamento</span>
+                        <input
+                            placeholder='Ex: À vista'
+                            value={category}
+                            onChange={event => setCategory(event.target.value)}
+                        />
+                    </div>
+                </div>       
+
+                <div className="input-modal">                  
+                    <div>
+                        <img src={ValueImg} alt="value"/>
+                        <span>Banco</span>
+                        <input
+                            className='input-modal-total'
+                            placeholder='Ex: Banco do Brasil'
+                            value={title}
+                            onChange={event => setTitle(event.target.value)}
+                        />
+                    </div>                
+                    <div>
+                        <img src={ValueImg} alt="value"/>
+                        <span>Valor</span>
+                        <input
+                            placeholder='R$ 0,00'
+                            value={category}
+                            onChange={event => setCategory(event.target.value)}
+                        />
+                    </div>
+                </div>  
+
+                <div>
+                    <img src={ValueImg} alt="value"/>
+                    <span>Histórico</span>
+                    <input
+                        placeholder='Ex: Pagamento da Energia Elétrica'
+                        value={category}
+                        onChange={event => setCategory(event.target.value)}
+                    />
+                </div>          
                 
                 <button type="submit">
                     Realizar Lançamento

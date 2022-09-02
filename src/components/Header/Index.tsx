@@ -13,6 +13,7 @@ export function Header({onOpenNewTransactionModal}: HeaderProps){
         <Container>
             <Content>
                 <img src={logoImg} alt="dtmoney" />
+                {/* <p>My Manager Money</p> */}
                 <button 
                     type="button" 
                     onClick={onOpenNewTransactionModal}>
