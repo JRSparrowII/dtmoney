@@ -3,7 +3,13 @@ import {Container, TransactionTypeContainer, RadioBox} from './styles';
 import closeImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';
 import CalendarImg from '../../assets/calendar.png';
-import ValueImg from '../../assets/value.png'
+import ValueImg from '../../assets/value.png'; 
+import DateImg from '../../assets/date.png'; 
+import ValorImg from '../../assets/valor.png';
+import ContaImg from '../../assets/conta.png'; 
+import HistoricoImg from '../../assets/historico.png';
+import CategoryImg from '../../assets/category.png';
+import FormapgtoImg from '../../assets/formapgto.png';
 import outcomeImg from '../../assets/outcome.svg';
 import { FormEvent, useState, useContext } from 'react';
 import { api } from '../../services/api';
@@ -84,11 +90,11 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                 {/* CORPO DO MODAL */}
                 <div className="input-modal">                
                     <div>
-                        <img src={ValueImg} alt="value"/>
+                        <img src={DateImg} alt="value"/>
                         <span>Data da Transação</span>
                         <input
                             className='input-modal-total'
-                            placeholder='Ex: 01/01/2022'
+                            placeholder='dd/mm/aaaa'
                             value={title}
                             // VERIFICAR A DATATYPE AQUI EM CIMA NO LUGAR DO TITLE
                             onChange={event => setTitle(event.target.value)}
@@ -96,7 +102,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                     </div>
 
                     <div>
-                        <img src={ValueImg} alt="value"/>
+                        <img src={CategoryImg} alt="value"/>
                         <span>Categoria</span>
                         <input
                             placeholder='Ex: Alimentação'
@@ -107,8 +113,8 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                 </div>
 
                 <div className="input-modal">                  
-                    <div className="value-modal">
-                        <img src={ValueImg} alt="value"/>
+                    <div>
+                        <img src={ContaImg} alt="conta"/>
                         <span>Conta</span>
                         <input
                             className='input-modal-total'
@@ -118,7 +124,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         />
                     </div>                
                     <div>
-                        <img src={ValueImg} alt="value"/>
+                        <img src={FormapgtoImg} alt="pgto"/>
                         <span>Forma de Pagamento</span>
                         <input
                             placeholder='Ex: À vista'
@@ -140,7 +146,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         />
                     </div>                
                     <div>
-                        <img src={ValueImg} alt="value"/>
+                        <img src={ValorImg} alt="valor"/>
                         <span>Valor</span>
                         <input
                             placeholder='R$ 0,00'
@@ -151,7 +157,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                 </div>  
 
                 <div>
-                    <img src={ValueImg} alt="value"/>
+                    <img src={HistoricoImg} alt="historico"/>
                     <span>Histórico</span>
                     <input
                         placeholder='Ex: Pagamento da Energia Elétrica'

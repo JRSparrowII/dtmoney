@@ -59,10 +59,10 @@ export const Container = styled.form`
         font-size: 1.3rem;
         margin-top: 1.5rem;
         transition: filter 0.2s;
-        font-weight: 600;
+        font-weight: 600;       
         
         &:hover{
-            filter: brightness(0.9);
+            filter: brightness(0.9);            
         }
 
     }

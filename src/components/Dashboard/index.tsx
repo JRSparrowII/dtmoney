@@ -6,10 +6,16 @@ import { Menu} from '../Menu';
 
 export function Dashboard(){
     return(
-        <Container>    
-            <Menu/>        
-            <Summary/>   
-            <TransactionsTable/>                            
+        <Container> 
+            <Menu/> 
+            <div className="container-dashboard">
+                <Summary/> 
+                <div className="container-dashboard-grafico">
+                    <h1>Grafico</h1>
+                </div>
+            </div>                   
+              
+            {/* <TransactionsTable/>                             */}
         </Container>
     );
 }
