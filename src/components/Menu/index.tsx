@@ -36,7 +36,7 @@ export function Menu({onOpenNewTransactionModal}: MenuProps){
                             <button className="menu-button" type="button">  
                                 <img src={lancamentoImg} alt="lancamentos" />                                      
                                 <span>Lançamentos</span>                                
-                            </button>
+                            </button>                            
                             {/* <>
                                 <Link to="/">
                                     

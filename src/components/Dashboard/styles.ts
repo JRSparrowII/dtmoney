@@ -10,7 +10,7 @@ align-items: flex-start;
 .container-dashboard{
     background-color: white;  
     -webkit-box-shadow: 0 0 4px 0 rgb(0 0 0 / 30%);  
-    margin: 0px auto;
+    margin: 0px 10px 0px 60px;
     width: 100%;   
     max-width: 1200px; 
     border-radius: 5px;

@@ -14,6 +14,7 @@ import outcomeImg from '../../assets/outcome.svg';
 import { FormEvent, useState, useContext } from 'react';
 import { api } from '../../services/api';
 import { useTransactions } from '../../hooks/useTransactions';
+import { toast } from 'react-toastify';
 // import { TransactionsContext } from '../../hooks/useTransactions';
 
 
@@ -26,10 +27,17 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
 
     const {createTransaction} = useTransactions();
 
-    const [title, setTitle] = useState('');
-    const [amount, setAmount] = useState(0);
+    
+    const [createdAt, setCreatedAt] = useState('');
     const [category, setCategory] = useState('');
+    const [title, setTitle] = useState('');
     const [type, setType] = useState('deposit');
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [bank, setBank] = useState('');
+    const [amount, setAmount] = useState('');
+    const [historic, setHistoric] = useState('');
+    
+    
 
     async function handleNewCreateTransaction(event: FormEvent){
         event.preventDefault();   
@@ -42,7 +50,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
         })
 
         setTitle('');
-        setAmount(0);
+        setAmount('');
         setCategory('');
         setType('deposit');
         onRequestClose();
@@ -57,7 +65,7 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
         >
             <button type="button" onClick={onRequestClose} className="react-modal-close">
                 <img src={closeImg} alt="Fechar Modal" />
-            </button>
+            </button>            
 
             <Container onSubmit={handleNewCreateTransaction}>
                 <div className="header-modal">
@@ -95,9 +103,9 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         <input
                             className='input-modal-total'
                             placeholder='dd/mm/aaaa'
-                            value={title}
+                            value={createdAt}
                             // VERIFICAR A DATATYPE AQUI EM CIMA NO LUGAR DO TITLE
-                            onChange={event => setTitle(event.target.value)}
+                            onChange={event => setCreatedAt(event.target.value)}
                         />
                     </div>
 
@@ -128,8 +136,8 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         <span>Forma de Pagamento</span>
                         <input
                             placeholder='Ex: À vista'
-                            value={category}
-                            onChange={event => setCategory(event.target.value)}
+                            value={paymentMethod}
+                            onChange={event => setPaymentMethod(event.target.value)}
                         />
                     </div>
                 </div>       
@@ -141,8 +149,8 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         <input
                             className='input-modal-total'
                             placeholder='Ex: Banco do Brasil'
-                            value={title}
-                            onChange={event => setTitle(event.target.value)}
+                            value={bank}
+                            onChange={event => setBank(event.target.value)}
                         />
                     </div>                
                     <div>
@@ -150,8 +158,8 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                         <span>Valor</span>
                         <input
                             placeholder='R$ 0,00'
-                            value={category}
-                            onChange={event => setCategory(event.target.value)}
+                            value={amount}
+                            onChange={event => setAmount(event.target.value)}
                         />
                     </div>
                 </div>  
@@ -161,14 +169,18 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
                     <span>Histórico</span>
                     <input
                         placeholder='Ex: Pagamento da Energia Elétrica'
-                        value={category}
-                        onChange={event => setCategory(event.target.value)}
+                        value={historic}
+                        onChange={event => setHistoric(event.target.value)}
                     />
                 </div>          
                 
                 <button type="submit">
-                    Realizar Lançamento
+                    Realizar Lançamento   
                 </button>
+                
+                {/* if({category} != null){                    
+                    toast.error('Transação cadastada com sucesso!')
+                } */}
             </Container>
           
         </Modal>
